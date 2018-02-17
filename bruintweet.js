@@ -11,11 +11,14 @@ $(document).ready(function(){
 })
 
 function sub() {
-  var username = $("#user");
-  var password = $("#pass");
+  var username = document.getElementById("handle");
+  if (username.value == "") {
+    alert("Please enter a Twitter handle.");
+    return;
+  }
   if (document.getElementById("winterbtn").checked == true) {
     $.getJSON(session + "Winter/all", function(win){
-      console.log(JSON.stringify(win[0]['section']));
+      console.log(JSON.stringify(win[0]['sections']));
     })
   }
   else if (document.getElementById("springbtn").checked == true) {
