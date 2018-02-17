@@ -1,5 +1,5 @@
 $(document).ready(function(){
-  $.getJSON("#", function(json){
-
+  $.getJSON("api.ucladevx.com/courses/<quarter>/<subject>", function(json){
+    alert(json);
   })
 })
