@@ -16,6 +16,8 @@ function sub() {
     alert("Please enter a Twitter handle.");
     return;
   }
+  //else enter it into Twitter API
+  
   if (document.getElementById("winterbtn").checked == true) {
     $.getJSON(session + "Winter/all", function(win){
       console.log(JSON.stringify(win[0]['sections']));
