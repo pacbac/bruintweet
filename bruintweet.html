@@ -7,13 +7,24 @@
     <link href="bruintweet.css" type="text/css" rel="stylesheet"></link>
   </head>
   <body>
-    <h1>Bruin Tweet</h1>
-    <h2>A Smarter Way to Find Classes</h2>
-
-    <h3>What is BruinTweet?</h3>
-    <p>BruinTweet is a web application that suggests classes for you
-      based on your Twitter posts, follows, and general interests.</p>
-
-
+    <div class="info">
+      <h1>Bruin Tweet</h1>
+      <h2>A Smarter Way to Find Classes</h2>
+      <h3>What is BruinTweet?</h3>
+      <p>BruinTweet is a web application that suggests classes for you
+        based on your Twitter posts, follows, and general interests.</p>
+    </div>
+    <div>
+      Twitter Login:<br/>
+      <input type="text" id = "user" placeholder="Username"><br/>
+      <input type="text" id = "pass" placeholder="Password">
+      <br/>
+      <form id="qtrselect">
+        What quarter would you like to search?
+        <button type="button" onclick = "btnWin()" id="winterbtn">Winter</button>
+        <button type="button" onclick = "btnSpr()" id="springbtn">Spring</button><br/>
+        <button type="submit" value="Submit">Submit</button>
+      </form>
+    </div>
   </body>
 </html>
