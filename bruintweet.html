@@ -9,19 +9,18 @@
     <link href="bruintweet.css" type="text/css" rel="stylesheet"></link>
   </head>
   <body>
-    <div class="info">
-      <div class="header">
-        <h1>BruinTweet</h1>
-        <h2>A Smarter Way to Find Classes</h2>
-      </div>
-      <h3>What is BruinTweet?</h3>
-      <p>BruinTweet is a web application that suggests classes for you
-        based on your Twitter posts, follows, and general interests.</p>
+    <img src="https://pre00.deviantart.net/6f68/th/pre/f/2012/274/3/a/twitter_minimalistic_background_by_vaughnwhiskey-d5gityo.png" alt="background">
+    <div class="header">
+      <h1>BruinTweet</h1>
+      <h2>A Smarter Way to Find Classes</h2>
     </div>
-    <div>
-      <form class="enterinfo">
+    <div class="center-content">
+      <form class="enter-info">
+        <h3>What is BruinTweet?</h3>
+        <p>BruinTweet is a web application that suggests classes for you
+          based on your Twitter posts, follows, and general interests.</p>
         Twitter Handle:<br/>
-        <input type="text" id = "handle" placeholder="ex. @block_gene"><br/>
+        <input type="text" id = "handle" placeholder="ex. @block_gene" maxlength="15"><br/>
         What quarter would you like to search?<br/>
         <label>
           <input type="radio" name="quarter" id="winterbtn">Winter
@@ -32,6 +31,15 @@
         <button type="button" onclick = "sub()">Submit</button>
       </form>
     </div>
+    <div class="result">
+      <p>Based on your Twitter activity...<br/>
+        Classes to take:</p>
+        <ul>
+          <li class="c1">c1</li>
+        </ul>
+      </p>
+    </div>
+  </div>
   </body>
 
 </html>
