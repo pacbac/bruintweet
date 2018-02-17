@@ -17,13 +17,17 @@
     <div>
       Twitter Login:<br/>
       <input type="text" id = "user" placeholder="Username"><br/>
-      <input type="text" id = "pass" placeholder="Password">
+      <input type="password" id = "pass" placeholder="Password">
       <br/>
-      <form id="qtrselect">
-        What quarter would you like to search?
-        <button type="button" onclick = "btnWin()" id="winterbtn">Winter</button>
-        <button type="button" onclick = "btnSpr()" id="springbtn">Spring</button><br/>
-        <button type="submit" value="Submit">Submit</button>
+      <form class="qtrselect">
+        What quarter would you like to search?<br/>
+        <label>
+          <input type="radio" name="quarter" id="winterbtn">Winter
+        </label>
+        <label>
+          <input type="radio" name="quarter" id="springbtn">Spring
+        </label><br/><br/>
+        <button type="button" onclick = "sub()">Submit</button>
       </form>
     </div>
   </body>
