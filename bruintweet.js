@@ -1,5 +1,5 @@
 $(document).ready(function(){
-  $.getJSON("api.ucladevx.com/courses/<quarter>/<subject>", function(json){
-    alert(json);
+  $.getJSON("http://api.ucladevx.com/courses/winter/computer science", function(json){
+      alert(JSON.stringify(json[0]['sections']));
   })
 })
