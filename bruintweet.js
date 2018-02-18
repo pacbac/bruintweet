@@ -1,3 +1,5 @@
+  var session= "http://api.ucladevx.com/courses/";
+
 $(document).ready(function(){
   $.getJSON("http://api.ucladevx.com/courses/winter/computer science/", function(json){
     alert(JSON.stringify(json));
@@ -39,3 +41,28 @@ $(document).ready(function(){
   });
 
 })
+
+function sub() {
+  var username = document.getElementById("handle");
+  if (username.value == "") {
+    alert("Please enter a Twitter handle.");
+    return;
+  }
+  //else enter it into Twitter API
+
+  if (document.getElementById("winterbtn").checked == true) {
+    $.getJSON(session + "Winter/all", function(win){
+      console.log(JSON.stringify(win[0]['sections']));
+    })
+  }
+  else if (document.getElementById("springbtn").checked == true) {
+    $.getJSON(session + "Spring/all", function(spr){
+      console.log(JSON.stringify(spr[0]['sections']));
+    })
+  }
+  else {
+    alert("Please select a quarter.");
+    return;
+  }
+  $(".result").show();
+}
