@@ -97,6 +97,9 @@ function getTags(input){
       for ( var i = 0; i < similarList.length; i++) {
           $(".crse").append("<p>" + similarList[i] + "</p>")
       }
+      courseList = []
+      subjectList = []
+      similarList = []
     },
     error: function(){
       alert("Cannot get data");

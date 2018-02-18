@@ -9,7 +9,7 @@ oauth2.getOAuthAccessToken('', {
 
     var options = {
         hostname: 'api.twitter.com',
-        path: '/1.1/statuses/user_timeline.json?screen_name=elonmusk',
+        path: '/1.1/statuses/user_timeline.json?screen_name=C9Mang0',
         headers: {
             Authorization: 'Bearer ' + access_token
         }
