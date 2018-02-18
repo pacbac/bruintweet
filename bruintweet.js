@@ -24,21 +24,7 @@ $(document).ready(function(){
     }
   });
 
-  $.getJSON("https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=c9mang0", function(data){
-    alert(JSON.stringify(data))
-  })
 
-  $.ajax({
-      url: "get-tweets.js",
-      dataType: "script",
-      cache: true,
-      success: function() {
-          alert("t")
-          $.getJSON("home.json", function(json){
-            alert(JSON.stringify(json))
-          })
-      }
-  });
 
 })
 
