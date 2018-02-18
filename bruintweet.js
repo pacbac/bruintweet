@@ -99,8 +99,12 @@ function getTags(input){
       compareArr(keywordArr, courseList)
       $(".crse").html("")
       //alert(similarList[0])
-      for ( var i = 0; i < similarList.length; i++) {
-          $(".crse").append("<p>" + similarList[i] + "</p>")
+      if(similarList.length == 0)
+        $(".crse").append("No suitable courses :(")
+      else {
+        for ( var i = 0; i < similarList.length; i++) {
+            $(".crse").append("<p>" + similarList[i] + "</p>")
+        }
       }
       courseList = []
       subjectList = []
