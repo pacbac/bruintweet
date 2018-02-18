@@ -3,15 +3,9 @@ var tweetJson;
 var courseList = []
 var subjectList = []
 var similarList = []
-$(document).ready(function(){
-  $.getJSON("http://api.ucladevx.com/courses/all/all/", function(json){
-    var courseJSON = JSON.stringify(json);
-    for(var i = 0; i < courseJSON.length; i++){
-      courseList.push(courseJSON[i]["course"])
-      subjectList.push(courseJSON[i]["subject"])
-    }
 
-  })
+screenName = ""
+$(document).ready(function(){
 
   $(".submit").click(function(){
     sub()
@@ -28,16 +22,29 @@ function sub() {
   //else enter it into Twitter API
 
   if (document.getElementById("winterbtn").checked == true) {
-    $.getJSON(session + "Winter/all", function(win){
+    $.getJSON(session + "winter/all", function(win){
+      var courseJSON = win
+      //alert(JSON.stringify(courseJSON[0]["course"]))
+      for(var i = 0; i < courseJSON.length; i++){
+        subjectList.push(courseJSON[i]["subject"])
+        //alert(courseJSON[i]["subject"])
+        courseList.push(courseJSON[i]["course"])
+
+      }
       console.log(JSON.stringify(win[0]['sections']));
+      twitterData()
     })
-    twitterData()
   }
   else if (document.getElementById("springbtn").checked == true) {
-    $.getJSON(session + "Spring/all", function(spr){
+    $.getJSON(session + "spring/all", function(spr){
+      var courseJSON = spr
+      for(var i = 0; i < courseJSON.length; i++){
+        courseList.push(courseJSON[i]["course"])
+        subjectList.push(courseJSON[i]["subject"])
+      }
       console.log(JSON.stringify(spr[0]['sections']));
+      twitterData()
     })
-    twitterData()
   }
   else {
     alert("Please select a quarter.");
@@ -53,7 +60,7 @@ function twitterData(){
       cache: true,
       success: function() {
           $.getJSON("home.json", function(json){
-            alert("a")
+            $(".crse").text("Loading...")
             //alert(JSON.stringify(json))
             tweetJson = JSON.stringify(json)
             getTags(json[0]["text"])
@@ -83,12 +90,13 @@ function getTags(input){
       for (var i = 0; i < keywordJSON.length; i++){
         keywordArr.push(keywordJSON[i][["keyword"]])
       }
+      $(".crse").text("Loading some more...")
       compareArr(keywordArr, courseList)
       $(".crse").html("")
+      //alert(similarList[0])
       for ( var i = 0; i < similarList.length; i++) {
           $(".crse").append("<p>" + similarList[i] + "</p>")
       }
-
     },
     error: function(){
       alert("Cannot get data");
@@ -104,8 +112,11 @@ $("#linkJSON").click(function(){
 function compareArr(keywordArr, courseList){
   for(var i = 0; i < keywordArr.length; i++){
     for(var j = 0; j < courseList.length;j++){
-      if(similarity(keywordArr[i],courseList[j]) > .7) {
-        similarList.push(courseList.length[j]);
+      console.log(courseList[j])
+      var isSimilar = similarity(keywordArr[i],courseList[j])
+      //alert(isSimilar)
+      if(isSimilar > 0.3) {
+        similarList.push(courseList[j]);
       }
     }
   }
