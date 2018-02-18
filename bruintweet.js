@@ -7,7 +7,12 @@ var similarList = []
 screenName = ""
 $(document).ready(function(){
 
+  $("#handle").on("focus", function(){
+    document.getElementById("handle").value = "realDonaldTrump"
+  })
+
   $(".submit").click(function(){
+    $(".crse").html("")
     sub()
   })
 
