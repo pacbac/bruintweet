@@ -1,8 +1,14 @@
   var session= "http://api.ucladevx.com/courses/";
 var tweetJson;
+var courseList = []
+var subjectList = []
 $(document).ready(function(){
-  $.getJSON("http://api.ucladevx.com/courses/winter/computer science/", function(json){
-    alert(JSON.stringify(json));
+  $.getJSON("http://api.ucladevx.com/courses/all/all/", function(json){
+    var courseJSON = JSON.stringify(json);
+    for(var i = 0; i < courseJSON.length; i++){
+      courseList.push(courseJSON[i]["course"])
+      subjectList.push(courseJSON[i]["subject"])
+    }
 
   })
 
@@ -72,9 +78,12 @@ function getTags(input){
     data: '{"foo":"bar"}',
     success: function (data) {
       var keywordJSON = data["keywords"]
+      var keywordArr = []
       for (var i = 0; i < keywordJSON.length; i++){
-        $(".c1").append(keywordJSON[i][["keyword"]]+" ")
+        keywordArr.push(keywordJSON[i][["keyword"]])
       }
+      compareArr(keywordArr, courseList)
+
     },
     error: function(){
       alert("Cannot get data");
@@ -86,3 +95,11 @@ function getTags(input){
 $("#linkJSON").click(function(){
   $("#tweetscontent").text(tweetJson);
 });
+
+function compareArr(keywordArr, courseList){
+  for(var i = 0; i < keywordArr.length; i++){
+    for(var i = 0; i < courseList.length; i++){
+
+    }
+  }
+}
